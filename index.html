@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoucherHub VN — Mã giảm giá Shopee & TikTok Shop hôm nay</title>
+<meta name="description" content="Tổng hợp mã giảm giá, voucher Shopee và TikTok Shop mới nhất hôm nay. Freeship, flash sale, giảm giá cực sốc cập nhật liên tục.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF6B35;
+    --orange-dark: #E85520;
+    --tiktok: #010101;
+    --shopee: #EE4D2D;
+    --bg: #F7F7F8;
+    --card: #FFFFFF;
+    --text: #1A1A1A;
+    --text2: #666;
+    --text3: #999;
+    --border: rgba(0,0,0,0.08);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #FF6B35 0%, #E63946 100%); padding: 1.25rem 1rem 3.5rem; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+  .header::after { content: ''; position: absolute; bottom: -40px; left: -20px; width: 140px; height: 140px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+  .logo { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+  .logo span { font-weight: 400; opacity: 0.7; }
+  .tagline { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 4px; margin-bottom: 1.25rem; }
+  .stats { display: flex; gap: 10px; position: relative; z-index: 1; }
+  .stat { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 10px 14px; flex: 1; backdrop-filter: blur(8px); }
+  .stat-num { font-size: 20px; font-weight: 700; color: #fff; }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 1px; }
+
+  /* SEARCH */
+  .search-wrap { margin: -1.5rem 1rem 0; position: relative; z-index: 10; }
+  .search-box { display: flex; align-items: center; background: #fff; border-radius: 12px; padding: 10px 14px; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+  .search-box input { flex: 1; border: none; outline: none; font-size: 14px; font-family: 'Be Vietnam Pro', sans-serif; color: var(--text); background: transparent; }
+  .search-box input::placeholder { color: var(--text3); }
+  .search-icon { color: var(--text3); font-size: 16px; }
+
+  /* FILTERS */
+  .filters { display: flex; gap: 8px; padding: 1rem 1rem 0.25rem; overflow-x: auto; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip { padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; white-space: nowrap; cursor: pointer; border: 1.5px solid var(--border); color: var(--text2); background: var(--card); transition: all 0.15s; flex-shrink: 0; }
+  .chip.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+  /* FLASH BANNER */
+  .flash { background: #1A1A2E; margin: 0.75rem 1rem; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
+  .flash-text { flex: 1; }
+  .flash-title { font-size: 13px; font-weight: 600; color: #fff; }
+  .flash-sub { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .flash-timer { font-size: 18px; font-weight: 700; color: var(--orange); font-family: monospace; letter-spacing: 1px; }
+
+  /* SECTION */
+  .section-title { font-size: 12px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.6px; padding: 0.75rem 1rem 0.5rem; }
+
+  /* CARDS */
+  .cards { display: flex; flex-direction: column; gap: 10px; padding: 0 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; gap: 12px; transition: transform 0.1s, box-shadow 0.1s; }
+  .card:active { transform: scale(0.99); }
+  .platform-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .icon-shopee { background: #FFF0EB; }
+  .icon-tiktok { background: #F0F0F0; }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .card-desc { font-size: 12px; color: var(--text3); margin-bottom: 9px; }
+  .code-row { display: flex; align-items: center; gap: 8px; }
+  .code-box { background: #F5F5F7; border: 1px dashed rgba(0,0,0,0.15); border-radius: 8px; padding: 6px 12px; font-size: 13px; font-weight: 700; font-family: monospace; color: var(--text); letter-spacing: 1.5px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .copy-btn { background: var(--orange); color: #fff; border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: 'Be Vietnam Pro', sans-serif; flex-shrink: 0; transition: background 0.15s; }
+  .copy-btn:active { background: var(--orange-dark); }
+  .copy-btn.done { background: #2E7D32; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 9px; }
+  .expire { font-size: 11px; color: var(--text3); }
+  .expire.urgent { color: #E63946; font-weight: 500; }
+  .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag-hot { background: #FFF0EB; color: #E85520; }
+  .tag-freeship { background: #E8F5E9; color: #2E7D32; }
+  .tag-new { background: #E3F2FD; color: #1565C0; }
+  .tag-flash { background: #FFF8E1; color: #F57F17; }
+
+  /* EMPTY */
+  .empty { text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 14px; display: none; }
+
+  /* LOADING */
+  .loading { text-align: center; padding: 2rem; color: var(--text3); font-size: 14px; }
+  .spinner { width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--orange); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 10px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* LOAD MORE */
+  .load-more { text-align: center; padding: 1.25rem 1rem 2rem; }
+  .load-more button { background: none; border: 1.5px solid var(--border); border-radius: 10px; padding: 11px 28px; font-size: 13px; font-weight: 600; color: var(--text2); cursor: pointer; font-family: 'Be Vietnam Pro', sans-serif; transition: border-color 0.15s; }
+  .load-more button:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1A1A1A; color: #fff; padding: 10px 20px; border-radius: 20px; font-size: 13px; font-weight: 500; opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 9999; white-space: nowrap; }
+  .toast.show { opacity: 1; }
+
+  /* FOOTER */
+  .footer { text-align: center; padding: 1.5rem 1rem; font-size: 12px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 1rem; }
+  .footer a { color: var(--orange); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">VoucherHub<span>.vn</span></div>
+  <div class="tagline">Mã giảm giá Shopee & TikTok Shop — cập nhật mỗi ngày</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Voucher hôm nay</div></div>
+    <div class="stat"><div class="stat-num" id="stat-urgent">—</div><div class="stat-label">Sắp hết hạn</div></div>
+    <div class="stat"><div class="stat-num" id="stat-new">—</div><div class="stat-label">Mới thêm</div></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Tìm voucher, code, sản phẩm..." oninput="applyFilters()">
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <div class="chip active" data-filter="all" onclick="setFilter(this)">Tất cả</div>
+  <div class="chip" data-filter="shopee" onclick="setFilter(this)">🛍 Shopee</div>
+  <div class="chip" data-filter="tiktok" onclick="setFilter(this)">🎵 TikTok Shop</div>
+  <div class="chip" data-filter="freeship" onclick="setFilter(this)">📦 Freeship</div>
+  <div class="chip" data-filter="flash" onclick="setFilter(this)">⚡ Flash Sale</div>
+  <div class="chip" data-filter="hot" onclick="setFilter(this)">🔥 Hot</div>
+</div>
+
+<!-- FLASH BANNER -->
+<div class="flash">
+  <div style="font-size:22px">⚡</div>
+  <div class="flash-text">
+    <div class="flash-title">Flash Sale đang diễn ra</div>
+    <div class="flash-sub">Giảm đến 70% — kết thúc sau</div>
+  </div>
+  <div class="flash-timer" id="countdown">--:--:--</div>
+</div>
+
+<!-- VOUCHER LIST -->
+<div class="section-title">🔥 Voucher đang hoạt động</div>
+<div id="loading" class="loading"><div class="spinner"></div>Đang tải voucher...</div>
+<div class="cards" id="card-list"></div>
+<div class="empty" id="empty-msg">Không tìm thấy voucher phù hợp 😕</div>
+<div class="load-more" id="load-more-wrap" style="display:none">
+  <button onclick="loadMore()">Xem thêm voucher ↓</button>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>VoucherHub VN © 2025 — Voucher cập nhật hằng ngày</p>
+  <p style="margin-top:6px">Tham gia <a href="#">Telegram Channel</a> để nhận voucher mới nhất</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// CẤU HÌNH — SẾP CHỈ CẦN ĐỔI DÒNG NÀY
+// ============================================================
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1IFFp4I2LwLUYjfz5hhdNWch-dLYW7PbMopvRW5fp93k/edit?usp=sharing";
+
+// ============================================================
+// DATA MẪU — dùng khi chưa kết nối Sheet thật
+// ============================================================
+const SAMPLE_DATA = [
+  { id:1, platform:"shopee", title:"Freeship toàn quốc — đơn từ 0đ", code:"FREESHIP0", desc:"Shopee Xtra • Không giới hạn đơn tối thiểu", expire:"2025-12-31 23:59", tags:["hot","freeship"], active:true, isNew:true },
+  { id:2, platform:"tiktok", title:"Giảm 50k cho đơn từ 199k", code:"TIKTOK50K", desc:"TikTok Shop • Áp dụng tất cả sản phẩm", expire:"2025-12-31 23:59", tags:["hot","new"], active:true, isNew:true },
+  { id:3, platform:"shopee", title:"Giảm 30% thời trang — tối đa 100k", code:"TTMALL30", desc:"Shopee Mall • Thời trang nam & nữ", expire:"2025-12-31 23:59", tags:["new"], active:true, isNew:false },
+  { id:4, platform:"tiktok", title:"Freeship + Giảm 20k — đơn từ 99k", code:"LIVE20K", desc:"TikTok Shop • Mua sắm trực tiếp từ livestream", expire:"2025-12-31 23:59", tags:["freeship"], active:true, isNew:false },
+  { id:5, platform:"shopee", title:"Flash Sale điện tử — giảm thêm 80k", code:"DIENTUS80", desc:"Shopee • Điện thoại, laptop, phụ kiện", expire:"2025-12-31 23:59", tags:["hot","flash"], active:true, isNew:false },
+  { id:6, platform:"tiktok", title:"Giảm 15% mỹ phẩm — tối đa 200k", code:"MYCOSMETIC15", desc:"TikTok Shop • Skincare & Makeup", expire:"2025-12-31 23:59", tags:["new","hot"], active:true, isNew:true },
+];
+
+let allVouchers = [];
+let currentFilter = "all";
+let searchQuery = "";
+let visibleCount = 6;
+const PAGE_SIZE = 6;
+
+// ============================================================
+// LOAD DATA
+// ============================================================
+async function loadVouchers() {
+  try {
+    if (SHEET_URL.includes("SHEET_ID_CUA_SEP")) throw new Error("demo");
+    const res = await fetch(SHEET_URL);
+    const csv = await res.text();
+    const rows = csv.trim().split("\n").slice(1);
+    allVouchers = rows.map(row => {
+      const cols = row.split(",");
+      return {
+        id: cols[0], platform: (cols[1]||"").trim().toLowerCase(),
+        title: cols[2]||"", code: cols[3]||"", desc: cols[4]||"",
+        expire: cols[5]||"", tags: cols[6] ? cols[6].split("|").map(t=>t.trim()) : [],
+        active: (cols[7]||"").trim().toUpperCase() === "TRUE",
+        isNew: cols[8] ? (cols[8]||"").trim().toUpperCase() === "TRUE" : false
+      };
+    }).filter(v => v.active);
+  } catch(e) {
+    allVouchers = SAMPLE_DATA;
+  }
+  document.getElementById("loading").style.display = "none";
+  updateStats();
+  applyFilters();
+  startCountdown();
+}
+
+// ============================================================
+// STATS
+// ============================================================
+function updateStats() {
+  document.getElementById("stat-total").textContent = allVouchers.length;
+  const now = new Date();
+  const urgent = allVouchers.filter(v => {
+    if (!v.expire) return false;
+    const exp = new Date(v.expire);
+    return (exp - now) < 3 * 60 * 60 * 1000;
+  }).length;
+  document.getElementById("stat-urgent").textContent = urgent;
+  document.getElementById("stat-new").textContent = allVouchers.filter(v => v.isNew).length;
+}
+
+// ============================================================
+// FILTER + SEARCH
+// ============================================================
+function setFilter(el) {
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+  currentFilter = el.dataset.filter;
+  visibleCount = PAGE_SIZE;
+  applyFilters();
+}
+
+function applyFilters() {
+  searchQuery = document.getElementById("search-input").value.toLowerCase();
+  let filtered = allVouchers.filter(v => {
+    const matchFilter = currentFilter === "all" || v.platform === currentFilter || v.tags.includes(currentFilter);
+    const matchSearch = !searchQuery || v.title.toLowerCase().includes(searchQuery) || v.code.toLowerCase().includes(searchQuery) || v.desc.toLowerCase().includes(searchQuery);
+    return matchFilter && matchSearch;
+  });
+  renderCards(filtered);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderCards(vouchers) {
+  const list = document.getElementById("card-list");
+  const empty = document.getElementById("empty-msg");
+  const loadMore = document.getElementById("load-more-wrap");
+  if (vouchers.length === 0) {
+    list.innerHTML = "";
+    empty.style.display = "block";
+    loadMore.style.display = "none";
+    return;
+  }
+  empty.style.display = "none";
+  const visible = vouchers.slice(0, visibleCount);
+  list.innerHTML = visible.map(v => cardHTML(v)).join("");
+  loadMore.style.display = vouchers.length > visibleCount ? "block" : "none";
+}
+
+function cardHTML(v) {
+  const icon = v.platform === "shopee" ? "🛍" : "🎵";
+  const iconClass = v.platform === "shopee" ? "icon-shopee" : "icon-tiktok";
+  const platformLabel = v.platform === "shopee" ? "Shopee" : "TikTok Shop";
+  const expireHTML = expireLabel(v.expire);
+  const tagsHTML = v.tags.map(t => `<span class="tag tag-${t}">${t.toUpperCase()}</span>`).join("");
+  return `
+  <div class="card">
+    <div class="platform-icon ${iconClass}">${icon}</div>
+    <div class="card-body">
+      <div class="card-title">${v.title}</div>
+      <div class="card-desc">${platformLabel}${v.desc ? ' • ' + v.desc : ''}</div>
+      <div class="code-row">
+        <div class="code-box">${v.code}</div>
+        <button class="copy-btn" onclick="copyCode(this,'${v.code}')">Sao chép</button>
+      </div>
+      <div class="card-footer">
+        ${expireHTML}
+        <div class="tags">${tagsHTML}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function expireLabel(expire) {
+  if (!expire) return '<span class="expire">Không giới hạn</span>';
+  const now = new Date();
+  const exp = new Date(expire);
+  const diff = exp - now;
+  if (diff < 0) return '<span class="expire" style="color:#999">Đã hết hạn</span>';
+  if (diff < 60 * 60 * 1000) return `<span class="expire urgent">⏱ Còn ${Math.floor(diff/60000)} phút</span>`;
+  if (diff < 3 * 60 * 60 * 1000) return `<span class="expire urgent">⏱ Còn ${Math.floor(diff/3600000)} giờ ${Math.floor((diff%3600000)/60000)} phút</span>`;
+  return `<span class="expire">📅 HSD: ${exp.toLocaleDateString('vi-VN')}</span>`;
+}
+
+function loadMore() {
+  visibleCount += PAGE_SIZE;
+  applyFilters();
+}
+
+// ============================================================
+// COPY
+// ============================================================
+function copyCode(btn, code) {
+  navigator.clipboard.writeText(code).catch(() => {});
+  const orig = btn.textContent;
+  btn.textContent = "✓ Copied!";
+  btn.classList.add("done");
+  setTimeout(() => { btn.textContent = orig; btn.classList.remove("done"); }, 1800);
+  showToast("Đã sao chép: " + code);
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+// ============================================================
+// COUNTDOWN
+// ============================================================
+function startCountdown() {
+  const now = new Date();
+  const midnight = new Date(now); midnight.setHours(23,59,59,0);
+  function tick() {
+    const diff = midnight - new Date();
+    if (diff <= 0) { document.getElementById("countdown").textContent = "00:00:00"; return; }
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    document.getElementById("countdown").textContent =
+      (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+  }
+  tick(); setInterval(tick, 1000);
+}
+
+// START
+loadVouchers();
+</script>
+</body>
+</html>
